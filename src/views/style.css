@@ -1,0 +1,69 @@
+body {
+    background-color: #343a40; 
+    color: white; 
+}
+#myPieChart {
+    width: 600px !important;
+    height: 600px !important;
+    margin: 0 auto;
+}
+.sidebar {
+    height: 100vh;
+    background-color: #212529; 
+    position: fixed;
+    padding: 20px; 
+    width: 250px; 
+    top: 0;
+    left: 0;
+    overflow-y: auto;   
+}
+.sidebar a {
+    color: white; 
+}
+.sidebar a:hover {
+    background-color: #232f36; 
+}
+.content {
+    padding: 20px;
+}
+.content input{
+    background-color: #212529; 
+}
+.boxImagem {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    margin-bottom: 50px;
+  }
+  .boxImagem img {
+    max-width: 70%; 
+    height: auto; 
+  }
+  
+.nav{
+    margin-bottom: 50px;
+    background-color: #212529; 
+}
+section {
+    margin-left: 250px; 
+    padding: 1rem;
+  }
+.cards{
+    display: flex;
+    flex-direction:column;
+}
+
+
+
+
+@media (max-width: 768px) {
+    .sidebar {
+        position: static;
+        height: auto;
+        margin-bottom: 20px;
+    }
+    .content {
+        margin-left: 0;
+    }
+}
+
