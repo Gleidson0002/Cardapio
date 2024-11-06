@@ -1,85 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="style.css">
-   <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>Document</title>
 </head>
+
 <body>
 
-    <div class="sidebar">
-        <h2>Pizzaria</h2>
-        <ul class="nav flex-column">
-            <li class="nav-item">
-                <a class="nav-link active" href="#">Dashboard</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Relatórios</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Configurações</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Ajuda</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="login.html">Sair</a>
-          </li>
-        </ul>   
-    </div>
+  <header>
+    <nav class="navbar">
+      <ul class="nav-links">
+        <li><a href="#home"><i class="fa-solid fa-basket-shopping"></i> Pedidos</a></li>
+        <li><a href="#menu"><i class="fa-solid fa-house"></i> Home</a></li>
+        <li><a href="#about"><i class="fa-regular fa-user"></i> Entrar/login</a></li>
+      </ul>
+    </nav>
+  </header>
 
-<section>
 
-<nav>
-   
-    <div class="content">
-        <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
-    </div>
-      
-</nav>
+  <section class="box">
     <div class="boxImagem">
-        <img src="../views/image/Red and Black Modern Paper Illustrative Pizza Restaurant Presentation.png" alt="pizzaBanner">
-    </div>
+      <img src="../views/image/Red and Black Modern Paper Illustrative Pizza Restaurant Presentation.png"
+        alt="pizzaBanner">
 
-    <div class="cards">
-    <div class="card mb-3" style="max-width: 100%;height: auto; background-color: #212529; color: aliceblue; ">
-        <div class="row g-0">
-          <div class="col-md-4">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjdaZ7lXdwkRRRPCru-yxzEuy2ztxpN7yBig&s" class="img-fluid rounded-start" alt="..." style="width: 300px;height: 300px;">
+    </div>
+    <div class="opcoes">
+      <div class="menu-section">
+        <h1>Explore nossos produtos <span>#I<3Pizza</span>
+        </h1>
+        <div class="menu-items">
+          <div class="menu-item">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTazrMgTImJ19-NFQmOfIJSOjQvuCYbwvGOVg&s"
+              alt="Menu Principal">
+            <p>Menu Principal</p>
           </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <h4 class="card-title">Pizza de Calabresa</h4>
-              <p class="card-text">A pizza de calabresa é uma das mais tradicionais e queridas, com uma combinação irresistível de sabores. Ela é feita com uma base de massa fina e crocante, sobre a qual é espalhado um molho de tomate bem temperado. A cobertura principal é composta por fatias de linguiça calabresa levemente picante, que são distribuídas uniformemente, conferindo um sabor intenso e característico. Junto à calabresa, são colocadas rodelas de cebola, que adicionam um toque adocicado e aromático ao conjunto. Finalizada com uma camada de queijo mussarela derretido e orégano fresco, a pizza de calabresa é levada ao forno até atingir o ponto perfeito: bordas douradas e queijo levemente gratinado.</p>
-              <h5>Valor: R$ 60,00</h5>
-            </div>
-          </div><button type="button" class="btn btn-outline-success">Comprar</button>
+          <div class="menu-item">
+            <img
+              src="https://s5.static.brasilescola.uol.com.br/be/2023/03/pizza-italiana-tradicional-com-tomates-e-manjericao-em-alusao-a-historia-da-pizza.jpg"
+              alt="Billabong hour">
+            <p>Combos</p>
+          </div>
+          <div class="menu-item">
+            <img src="https://poracaso.com/wp-content/uploads/2023/03/pizza-doce-confetis-mm.jpg" alt="Kids menu">
+            <p>Kids menu</p>
+          </div>
+          <div class="menu-item">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3GbzUQchJthRpmFLANs8Gowf9Y68GPHxsAQ&s"
+              alt="Bebidas">
+            <p>Bebidas</p>
+          </div>
         </div>
       </div>
+    </div>
 
-      <div class="card mb-3" style="max-width: 100%;height: auto; background-color: #212529;color: aliceblue; ">
-        <div class="row g-0">
-          <div class="col-md-4">
-            <img src="https://s2-oglobo.glbimg.com/vWOtENaou_m_z0yEC6mPHMkYmDc=/0x0:3568x3568/924x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_da025474c0c44edd99332dddb09cabe8/internal_photos/bs/2023/H/L/kRho18SPyam1rwl0z5hQ/side-view-pizza-with-chopped-pepper-board-cookware.jpg" class="img-fluid rounded-start" alt="..."
-            style="width: 300px; height: 300px;">
-          </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <h4 class="card-title">Pizza Portuguesa</h4>
-              <p class="card-text">A pizza portuguesa é um clássico repleto de sabor e com uma cobertura rica e variada. Ela começa com uma massa fina e crocante, coberta por um molho de tomate levemente temperado que serve de base para os ingredientes. A cobertura inclui fatias de presunto suculento, ovos cozidos picados e azeitonas pretas, que trazem um toque de salgado e um sabor marcante. Além disso, rodelas de cebola são adicionadas para um toque aromático, complementando o sabor com sua leve doçura. A mussarela derretida une todos os ingredientes, e o orégano finaliza com seu aroma característico.</p>
-              <h5>Valor: R$ 60,00</h5>
-            </div>
-          </div>
-        </div><button type="button" class="btn btn-outline-success">Comprar</button>
+    <div class="card-container">
+      <div class="card">
+        <img src="https://vegjourney.com/wp-content/uploads/2023/12/Pizza-de-bolonhesa-de-soja-2.jpg" alt="Pizza Frita">
+        <h3>Pizza Bolonhesa</h3>
+        <p>Experimente a deliciosa e crocante Pizza Frita em diversos sabores, ideal para uma refeição rápida e
+          saborosa.</p>
+        <p class="price">A partir de <span>R$ 22,90</span></p>
+        <a href=""><button class="btnCompra">Eu quero!</button></a>
+      </div>
+      <div class="card">
+        <img src="https://painacozinha.com/wp-content/uploads/85.Pizza-de-Calabresa-com-Catupiry.webp" alt="Pizza Frita">
+        <h3>Pizza de Calabresa</h3>
+        <p>Experimente a deliciosa e crocante Pizza Frita em diversos sabores, ideal para uma refeição rápida e
+          saborosa.</p>
+        <p class="price">A partir de <span>R$ 22,90</span></p>
+        <a href=""><button class="btnCompra">Eu quero!</button></a>
+      </div>
+      <div class="card">
+        <img src="https://www.sabornamesa.com.br/media/k2/items/cache/32699af76cfc6e0191d612ffd4e88ee9_XL.jpg" alt="Pizza Frita">
+        <h3>Pizza 4 queijos</h3>
+        <p>Experimente a deliciosa e crocante Pizza Frita em diversos sabores, ideal para uma refeição rápida e
+          saborosa.</p>
+        <p class="price">A partir de <span>R$ 22,90</span></p>
+        <a href=""><button class="btnCompra">Eu quero!</button></a>
+      </div>
+      <div class="card">
+        <img src="https://www.comidaereceitas.com.br/wp-content/uploads/2010/10/Pizza-com-salame-tomate-e-cogumelo1.jpg" alt="Pizza Frita">
+        <h3>Pizza Americana</h3>
+        <p>Experimente a deliciosa e crocante Pizza Frita em diversos sabores, ideal para uma refeição rápida e
+          saborosa.</p>
+        <p class="price">A partir de <span>R$ 22,90</span></p>
+        <a href=""><button class="btnCompra">Eu quero!</button></a>
+      </div>
+      <div class="card">
+        <img src="https://www.ogastronomo.com.br/upload/389528334-curiosidades-sobre-a-pizza-portuguesa.jpg" alt="Pizza Frita">
+        <h3>Pizza Portuguesa</h3>
+        <p>Experimente a deliciosa e crocante Pizza Frita em diversos sabores, ideal para uma refeição rápida e
+          saborosa.</p>
+        <p class="price">A partir de <span>R$ 22,90</span></p>
+        <a href=""><button class="btnCompra">Eu quero!</button></a>
       </div>
     </div>
 
-    </section>
 </body>
+
 </html>
