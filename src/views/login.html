@@ -91,6 +91,11 @@
                 <div class="d-grid gap-2 col-6 mx-auto">
                     <button type="submit">Validar</button>
                 </div>
+
+                <div 
+                    <a href="./index.html"><button type="text">Ir para o cardapio</button></a>
+                </div>
+
             </form>
         </div>
     </section>
@@ -116,7 +121,7 @@
                     confirmButtonText: 'Entrar',
                     cancelButtonText: 'Sair'
                 }).then((result) => {
-                    if (result.isConfirmed) { window.location.href = 'index.html'; } else {
+                    if (result.isConfirmed) { window.location.href = 'dashboard.html'; } else {
                         window.location.href = 'login.html';
                     }
                 })

@@ -3,6 +3,15 @@ body {
     color: white; 
     
 }
+
+.nav-links li .logo{
+    display:none;
+   }
+   
+
+   .navbar .nav-links .logo{
+    display:none;
+   }
 .navbar {
     top: 0;               /* Alinha no topo da página */
     width: 100%;          /* Define a largura para ocupar toda a tela */
