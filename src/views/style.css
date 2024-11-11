@@ -1,34 +1,33 @@
 body {
     background-color: #343a40; 
     color: white; 
+    
 }
-.boxImagem {
-    display: flex;
-    justify-content: center; 
-    align-items: center; 
-    margin-bottom: 50px; 
-}
-.boxImagem img {
-    max-width: 70%; 
-    height: auto; 
-    border-radius: 10px;
-    border: 3px solid white;
-}
-
 .navbar {
-    display: flex;
-    justify-content: center; /* Centraliza todos os itens */
-    align-items: center;
+    top: 0;               /* Alinha no topo da página */
+    width: 100%;          /* Define a largura para ocupar toda a tela */
     background-color: #333;
-    padding: 15px 30px;
-    margin-bottom: 30px;
+    color: white;
+    padding: 10px 0;
+    height: 80px;
+    background-color: #333;
+    justify-content: center;
+    margin-bottom: 10px;
 }
-
+header img{
+    transform:translatex(0px) translatey(-42px);
+    height: 240px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Certifique-se de que ele fique acima de outros elementos */
+}
 .nav-links {
-    list-style: none;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
     display: flex;
-    justify-content: center; /* Centraliza os links */
-    flex: 1; /* Expande para ocupar o espaço restante */
+    justify-content: center;
 }
 
 .nav-links li {
@@ -40,7 +39,7 @@ body {
     padding: 10px;
     color: #fff;
     text-decoration: none;
-    padding: 5px 10px;
+    padding: 5px 10px; 
 }
 
 .nav-links a:hover {
@@ -54,11 +53,8 @@ body {
     width: 1500px; 
 }
 
-
-
-
 .menu-section {
-    text-align: center;
+    text-align: center; 
 }
 
 .menu-section h1 {
@@ -75,7 +71,7 @@ body {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 200px;
     margin-top: 20px;
 }
 
@@ -111,7 +107,7 @@ body {
 
 
 .card-container {
-    margin-top: 70px;
+    margin-top: 50px;
     display: flex;
     gap: 20px;
     flex-wrap: wrap;
@@ -154,18 +150,9 @@ body {
 
 .price {
     font-weight: bold;
-    color: #333;
 }
-
-.price .discount {
-    color: #00a650; /* Cor verde para o preço promocional */
-}
-
-.price .old-price {
-    text-decoration: line-through;
-    color: #888;
-    margin-left: 8px;
-    font-size: 0.9rem;
+.price span{
+    color: green;
 }
 .btnCompra{
     height: 30px;
