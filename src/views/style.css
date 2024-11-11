@@ -25,11 +25,11 @@ body {
 }
 header img{
     transform:translatex(0px) translatey(-42px);
-    height: 240px;
-    position: fixed;
+    height: 33%;
+    position: absolute;
     top: 0;
     left: 0;
-    z-index: 1000; /* Certifique-se de que ele fique acima de outros elementos */
+    z-index: 1000; 
 }
 .nav-links {
     list-style-type: none;

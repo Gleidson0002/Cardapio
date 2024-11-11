@@ -60,63 +60,10 @@
                 <a class="nav-link" href="#">Configurações</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Ajuda</a>
-            </li>
-            <li class="nav-item">
               <a class="nav-link" href="login.html">Sair</a>
           </li>
         </ul>
     </div>
-
-    <div class="content">
-        <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
-
-        <h2 class="text-center mt-4">Gigantes mobile</h2>
-        <canvas id="myPieChart"></canvas>
-    </div>
-
-    <script>
-        const ctx = document.getElementById('myPieChart').getContext('2d');
-        const myPieChart = new Chart(ctx, {
-            type: 'pie',
-            data: {
-                labels: ['Samsung', 'Apple', 'Xiaomi', 'Sony','Positivo'],
-                datasets: [{
-                    label: 'Vendas',
-                    data: [30000, 20000, 20005, 25000, 100000],
-                    backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(255, 206, 86, 0.2)',
-                        'rgba(75, 192, 192, 0.2)',
-                        'rgba(150, 2, 272, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgba(255, 99, 132, 1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(75, 192, 192, 1)',
-                        'rgba(150, 2, 272, 1)'
-                    ],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: {
-                        position: 'top',
-                    },
-                    title: {
-                        display: true,
-                        text: 'Distribuição de Vendas'
-                    }
-                }
-            }
-        });
-    </script>
+<div class="item">jj</div>
 </body>
 </html>

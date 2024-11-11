@@ -1,17 +1,188 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Document</title>
+    <title>Relatório de Compra - Pizzaria</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f9f9f9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        /* Estilos para o modal popup */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            width: 400px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .header h2 {
+            color: #e74c3c;
+        }
+
+        .header p {
+            color: #777;
+        }
+
+        .info {
+            margin-bottom: 20px;
+        }
+
+        .info h4 {
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        .info p {
+            color: #555;
+        }
+
+        .order-items {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        .order-items th, .order-items td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+            color: #555;
+        }
+
+        .order-items th {
+            background-color: #f3f3f3;
+            color: #333;
+        }
+
+        .total {
+            display: flex;
+            justify-content: space-between;
+            font-weight: bold;
+            font-size: 18px;
+            margin-top: 10px;
+        }
+
+        .thank-you {
+            text-align: center;
+            margin-top: 20px;
+            color: #777;
+            font-style: italic;
+        }
+
+        /* Botão de fechar */
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 18px;
+            color: #333;
+            cursor: pointer;
+            background: none;
+            border: none;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
-    <nav>
-        <li>
-            <a href="index.html"><i class="fa-solid fa-arrow-left"></i></a>
-        </li>
-    </nav>
-    <h1>rfgirehg</h1>
+    <!-- Botão para abrir o popup -->
+    <button onclick="openModal()">Adicionar Produto</button>
+
+    <!-- Modal Popup -->
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeModal()">X</button>
+            <div class="header">
+                <h2>Pizzaria Delícia</h2>
+                <p>Relatório de Compra</p>
+            </div>
+
+            <div class="info">
+                <h4>Cliente:</h4>
+                <p>Nome: João da Silva</p>
+                <p>Endereço: Rua das Flores, 123</p>
+                <p>Data do Pedido: 10/11/2024</p>
+            </div>
+
+            <table class="order-items">
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Qtd</th>
+                        <th>Preço</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Pizza Margherita</td>
+                        <td>1</td>
+                        <td>R$ 35,00</td>
+                    </tr>
+                    <tr>
+                        <td>Pizza Calabresa</td>
+                        <td>2</td>
+                        <td>R$ 70,00</td>
+                    </tr>
+                    <tr>
+                        <td>Bebida: Refrigerante</td>
+                        <td>2</td>
+                        <td>R$ 10,00</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="total">
+                <span>Total a Pagar:</span>
+                <span>R$ 115,00</span>
+            </div>
+
+            <div class="thank-you">
+                <p>Obrigado pela preferência!</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Função para abrir o modal
+        function openModal() {
+            document.getElementById("modal").style.display = "flex";
+        }
+
+        // Função para fechar o modal
+        function closeModal() {
+            document.getElementById("modal").style.display = "none";
+        }
+    </script>
 </body>
 </html>

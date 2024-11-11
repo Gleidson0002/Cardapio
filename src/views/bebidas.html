@@ -17,7 +17,6 @@
 </head>
 
 <body>
-
     <header>
         <a href="./index.html" class="logo">
             <img src="./image/logo.png" alt="Logo" />
@@ -65,44 +64,59 @@
         </div>
 
         <div class="card-container">
-            <div class="card">
+
+            <a onclick="selecionarprod('prod-11')">
+                <div class="card">
                 <img src="https://bretas.vtexassets.com/arquivos/ids/192050/6571c5df558925a4e8899eef.jpg"
                     alt="">
-                <h3>Coca-Cola de 2L</h3>
-                <p class="price">A partir de <span>R$ 10,90</span></p>
+                <h3 id="prod-detalhe-prod-11">Coca-Cola de 2L</h3>
+                <p>A partir de <span class="price-prod-11">R$ 10,90</span></p>
                 
-            </div>
+                </div>
+            </a>
+
+            <a onclick="selecionarprod('prod-12')">
             <div class="card">
                 <img src="https://http2.mlstatic.com/D_NQ_NP_997892-MLU77606734922_072024-O.webp" alt="Pizza Frita">
-                <h3>Coca-cola zero de 2L</h3>
-                <p class="price">A partir de <span>R$ 12,90</span></p>
+                <h3 id="prod-detalhe-prod-12">Coca-cola zero de 2L</h3>
+                <p>A partir de <span class="price-prod-12">R$ 12,90</span></p>
                
             </div>
-            <div class="card">
+            </a>
+
+            <a onclick="selecionarprod('prod-13')">
+             <div class="card">
                 <img src="https://http2.mlstatic.com/D_NQ_NP_641179-MLB45170469042_032021-O.webp" alt="Pizza Frita">
-                <h3>Rainik 330ml</h3>
+                <h3 id="prod-detalhe-prod-13">Rainik 330ml</h3>
                 
-                <p class="price">A partir de <span>R$ 7,90</span></p>
+                <p>A partir de <span class="price-prod-13">R$ 7,90</span></p>
                 
-            </div>
-            <div class="card">
+             </div>
+             </a>
+
+            <a onclick="selecionarprod('prod-14')">
+             <div class="card">
                 <img src="https://bretas.vtexassets.com/arquivos/ids/191409/6571c550558925a4e8899c40.jpg?v=638375517005200000"
                     alt="Pizza Frita">
-                <h3>Água sem gás </h3>
+                <h3 id="prod-detalhe-prod-14">Água sem gás </h3>
                 
-                <p class="price">A partir de <span>R$ 1,90</span></p>
+                <p>A partir de <span class="price-prod-14">R$ 1,90</span></p>
                 
-            </div>
+             </div>
+            </a>
+
+            <a onclick="selecionarprod('prod-15')">
             <div class="card">
                 <img src="https://bretas.vtexassets.com/arquivos/ids/188637-800-auto?v=638375511045400000&width=800&height=auto&aspect=true"
                     alt="Pizza Frita">
-                <h3>Água com gás</h3>
+                <h3 id="prod-detalhe-prod-15">Água com gás</h3>
                 
-                <p class="price">A partir de <span>R$ 2,90</span></p>
+                <p>A partir de <span class="price-prod-15">R$ 2,90</span></p>
                 
             </div>
+            </a>
         </div>
 
 </body>
-
+<script src="./pedidos.js"></script>
 </html>
