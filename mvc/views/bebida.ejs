@@ -116,46 +116,33 @@
             </div>
             </a>
         </div>
+ 
  <!-- Modal Popup -->
  <div class="modal" id="modal">
     <div class="modal-content">
         <button class="close-btn" onclick="closeModal()">X</button>
         <div class="header">
-            <h2>Pizzaria Delícia</h2>
+            <h2>Pizzaria do Mago</h2>
             <p>Relatório de Compra</p>
         </div>
   
         <table class="order-items">
+          <table class="order-items">
             <thead>
-                <tr>
-                    <th>Item</th>
-                    <th>Qtd</th>
-                    <th>Preço</th>
-                </tr>
+              <tr>
+                <th>Item</th>
+                <th>Qtd</th>
+                <th>Preço</th>
+              </tr>
             </thead>
-          
-        </table>
-  
-        <div class="total">
-            <span>Total a Pagar:</span>
-            
-        </div>
-  
-        <div class="thank-you">
-            <p>Obrigado pela preferência!</p>
-        </div>
+            <tbody>
+              <!-- Os itens serão inseridos aqui -->
+            </tbody>
+          </table>
     </div>
   </div>
-  
-  <script>
-    function openModal() {
-        document.getElementById("modal").style.display = "flex";
-    }
-  
-    function closeModal() {
-        document.getElementById("modal").style.display = "none";
-    }
-  </script>
+  <script src="../script.js"></script>
+  <script src="../app.js"></script>
   
   </body>
   

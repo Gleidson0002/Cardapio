@@ -29,10 +29,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Rota POST para adicionar produtos
 app.post('/adicionar-produto', (req, res) => {
-  const { nome, preco, descricao } = req.body;
+  const { nome, preco} = req.body;
 
   // Verifica se os dados foram enviados corretamente
-  if (!nome || !preco || !descricao) {
+  if (!nome || !preco) {
     return res.status(400).send('Todos os campos são obrigatórios!');
   }
 
@@ -41,7 +41,6 @@ app.post('/adicionar-produto', (req, res) => {
     .add({
       nome,
       preco,
-      descricao,
     })
     .then(() => {
       console.log(`Produto "${nome}" adicionado com sucesso!`);
