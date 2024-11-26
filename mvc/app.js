@@ -3,15 +3,24 @@ var express = require('express');
 var path = require('path');
 var logger = require('morgan');
 
-// Firebase Admin SDK
-const admin = require('firebase-admin');
-const serviceAccount = require('../mvc/pizzaria-746a0-firebase-adminsdk-p1fkb-77ec2313b4.json');
+// Importar funções do Firebase
+const { initializeApp } = require("firebase/app");
+const { getFirestore, collection, addDoc, getDocs, serverTimestamp } = require("firebase/firestore");
 
-admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
-});
+// Configuração do Firebase
+const firebaseConfig = {
+  apiKey: "AIzaSyDDPtSv_pX4lRQoZpV3JSF4PzQxBcsJx0o",
+  authDomain: "pizzaria-746a0.firebaseapp.com",
+  projectId: "pizzaria-746a0",
+  storageBucket: "pizzaria-746a0.firebasestorage.app",
+  messagingSenderId: "815253628984",
+  appId: "1:815253628984:web:f6d7a12fa34a4e14e11ecd",
+  measurementId: "G-TEZYLLCSZL"
+};
 
-const db = admin.firestore();
+// Inicializando o Firebase
+const appFirebase = initializeApp(firebaseConfig);
+const db = getFirestore(appFirebase);
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -24,51 +33,94 @@ app.set('view engine', 'ejs');
 
 app.use(logger('dev'));
 app.use(express.json());
-app.use(express.urlencoded({ extended: true })); // Para analisar form-data
+app.use(express.urlencoded({ extended: true })); 
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Rota POST para adicionar produtos
-app.post('/adicionar-produto', (req, res) => {
-  const { nome, preco} = req.body;
+app.post('/adicionar-produto', async (req, res) => {
+  console.log('Requisição recebida na rota /adicionar-produto');
+  console.log('Dados recebidos:', req.body);
 
-  // Verifica se os dados foram enviados corretamente
-  if (!nome || !preco) {
+  const { nome, preco, descricao } = req.body;
+
+  if (!nome || !preco || !descricao) {
+    console.error('Erro: Campos obrigatórios ausentes.');
     return res.status(400).send('Todos os campos são obrigatórios!');
   }
 
-  // Enviar os dados para a coleção 'produtos' no Firestore
-  db.collection('produtos')
-    .add({
+  try {
+    await addDoc(collection(db, 'produtos'), {
       nome,
       preco,
-    })
-    .then(() => {
-      console.log(`Produto "${nome}" adicionado com sucesso!`);
-      res.status(200).send('Produto adicionado ao banco de dados!');
-    })
-    .catch((error) => {
-      console.error('Erro ao adicionar produto:', error);
-      res.status(500).send('Erro ao adicionar produto');
+      descricao,
+      criadoEm: serverTimestamp(),
     });
+    console.log(`Produto "${nome}" adicionado com sucesso!`);
+    res.status(200).send('Produto adicionado ao banco de dados!');
+  } catch (error) {
+    console.error('Erro ao adicionar produto no Firestore:', error.code, error.message);
+    res.status(500).send(`Erro ao adicionar produto: ${error.message}`);
+  }
 });
 
-// Rota para obter os produtos do Firebase
-app.get('/produtos', (req, res) => {
-  console.log("Recebendo requisição para listar produtos...");
-  db.collection('produtos')
-    .get()
-    .then(snapshot => {
-      const produtos = [];
-      snapshot.forEach(doc => {
-        produtos.push(doc.data());
-      });
-      console.log("Produtos encontrados:", produtos);
-      res.json(produtos); // Retorna os produtos em formato JSON
-    })
-    .catch((error) => {
-      console.error('Erro ao obter produtos:', error);
-      res.status(500).send('Erro ao recuperar produtos');
+// Rota para atualizar o produto
+app.put('/editar-produto/:id', async (req, res) => {
+  const { id } = req.params;  
+  const { nome, preco, descricao } = req.body;
+
+  if (!nome || !preco || !descricao) {
+    console.error('Erro: Campos obrigatórios ausentes.');
+    return res.status(400).send('Todos os campos são obrigatórios!');
+  }
+
+  try {
+    const produtoRef = doc(db, 'produtos', id);
+
+    await updateDoc(produtoRef, {
+      nome,
+      preco,
+      descricao,
+      atualizadoEm: serverTimestamp(),
     });
+
+    console.log(`Produto "${nome}" atualizado com sucesso!`);
+    res.status(200).send('Produto atualizado no banco de dados!');
+  } catch (error) {
+    console.error('Erro ao editar produto no Firestore:', error.code, error.message);
+    res.status(500).send(`Erro ao editar produto: ${error.message}`);
+  }
+});
+
+// Rota para excluir um produto
+app.delete('/excluir-produto/:id', async (req, res) => {
+  const { id } = req.params; 
+
+  try {
+    const produtoRef = doc(db, 'produtos', id);
+    await deleteDoc(produtoRef);
+
+    console.log(`Produto com ID "${id}" excluído com sucesso!`);
+    res.status(200).send('Produto excluído do banco de dados!');
+  } catch (error) {
+    console.error('Erro ao excluir produto no Firestore:', error.code, error.message);
+    res.status(500).send(`Erro ao excluir produto: ${error.message}`);
+  }
+});
+
+app.get('/produtos', async (req, res) => {
+  console.log("Recebendo requisição para listar produtos...");
+  try {
+    const querySnapshot = await getDocs(collection(db, 'produtos'));
+    const produtos = [];
+    querySnapshot.forEach((doc) => {
+      produtos.push(doc.data());
+    });
+    console.log("Produtos encontrados:", produtos);
+    res.json(produtos); 
+  } catch (error) {
+    console.error('Erro ao obter produtos no Firestore:', error.code, error.message);
+    res.status(500).send(`Erro ao obter produtos: ${error.message}`);
+  }
 });
 
 app.use('/', indexRouter);
@@ -88,7 +140,7 @@ app.use(function (err, req, res, next) {
 });
 
 // Iniciar o servidor
-const port = 500;
+const port = 5000;
 app.listen(port, () => {
   console.log(`Servidor rodando na porta http://localhost:${port}`);
 });
