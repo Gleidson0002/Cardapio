@@ -5,7 +5,9 @@ var logger = require('morgan');
 
 // Importar funções do Firebase
 const { initializeApp } = require("firebase/app");
-const { getFirestore, collection, addDoc, getDocs, serverTimestamp } = require("firebase/firestore");
+const { getFirestore, collection, addDoc, serverTimestamp } = require("firebase/firestore");
+const { doc, updateDoc, deleteDoc, getDocs } = require("firebase/firestore");
+
 
 // Configuração do Firebase
 const firebaseConfig = {
@@ -107,7 +109,7 @@ app.delete('/excluir-produto/:id', async (req, res) => {
   }
 });
 
-app.get('/produtos', async (req, res) => {
+app.get('/get-produtos', async (req, res) => {
   console.log("Recebendo requisição para listar produtos...");
   try {
     const querySnapshot = await getDocs(collection(db, 'produtos'));

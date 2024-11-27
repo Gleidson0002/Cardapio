@@ -154,49 +154,52 @@
 </div>
 
 <script defer>
-  let produtosSelecionados = {}; // Para armazenar os produtos selecionados e suas quantidades
+  let produtosSelecionados = JSON.parse(localStorage.getItem('produtosSelecionados')) || {}; 
   
+  // Atualiza a tabela ao carregar a página
+  window.onload = function() {
+      atualizarTabela();
+  };
+
   function selecionarprod(produtoId) {
-      // Obtém o nome e o preço do produto baseado no ID fornecido
       const nomeProduto = document.querySelector(`#prod-detalhe-${produtoId}`).innerText;
       const precoProduto = parseFloat(document.querySelector(`.price-${produtoId}`).innerText.replace('R$', '').trim());
   
-      // Verifica se o produto já foi selecionado
       if (produtosSelecionados[nomeProduto]) {
-          // Se já estiver selecionado, aumenta a quantidade
           produtosSelecionados[nomeProduto].quantidade += 1;
       } else {
-          // Caso contrário, adiciona o produto ao carrinho com quantidade 1
           produtosSelecionados[nomeProduto] = {
               preco: precoProduto,
               quantidade: 1
           };
       }
   
-      // Atualiza a tabela de produtos no modal
+      salvarNoLocalStorage();
       atualizarTabela();
+  }
+  
+  function salvarNoLocalStorage() {
+      localStorage.setItem('produtosSelecionados', JSON.stringify(produtosSelecionados));
   }
   
   function atualizarTabela() {
       const orderItemsTable = document.querySelector('.order-items tbody');
-      orderItemsTable.innerHTML = ''; // Limpa a tabela antes de adicionar os novos produtos
+      orderItemsTable.innerHTML = ''; 
   
-      let total = 0; // Para calcular o total da compra
+      let total = 0;
   
-      // Itera sobre os produtos selecionados e atualiza a tabela
       for (const [nome, produto] of Object.entries(produtosSelecionados)) {
           const row = document.createElement('tr');
           row.innerHTML = `
               <td>${nome}</td>
               <td>${produto.quantidade}</td>
-              <td>R$ ${produto.preco.toFixed(2)}</td>
+              <td>R$ ${(produto.preco * produto.quantidade).toFixed(2)}</td>
           `;
           orderItemsTable.appendChild(row);
   
-          total += produto.preco * produto.quantidade; // Atualiza o total
+          total += produto.preco * produto.quantidade; 
       }
   
-      // Exibe o total
       const totalElement = document.querySelector('.total');
       if (!totalElement) {
           const totalRow = document.createElement('tr');
@@ -213,16 +216,13 @@
   
   function openModal() {
       document.getElementById("modal").style.display = "flex";
-      atualizarTabela(); // Atualiza a tabela ao abrir o modal
+      atualizarTabela(); 
   }
   
-  // Função para fechar o modal
   function closeModal() {
       document.getElementById("modal").style.display = "none";
   }
-  </script>
-  
-<script src="../app.js"></script>
+</script>
 
 </body>
 

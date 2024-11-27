@@ -30,6 +30,23 @@
         </ul>
     </div>
 
+    <div class="itensdobanco">
+        <h2>Produtos Cadastrados</h2>
+        <table class="product-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Preço</th>
+                    <th>Descrição</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Os produtos будã o carregados aqui -->
+            </tbody>
+        </table>
+    </div>
+
     <div class="box">
 
         <form id="product-form">
@@ -46,7 +63,6 @@
             <button type="submit">Cadastrar Produto</button>
         </form>
 
-
         <form id="delete-product-form">
             <h2>Excluir Produto</h2>
             <label for="delete-product-id">ID do Produto:</label>
@@ -54,8 +70,6 @@
 
             <button type="submit">Excluir Produto</button>
         </form>
-
-
 
         <form id="edit-product-form">
             <h2>Editar Produto</h2>
@@ -75,10 +89,6 @@
         </form>
 
     </div>
-
-
-   
-
 
     <script>
         document.getElementById('product-form').addEventListener('submit', async function (event) {
@@ -127,7 +137,7 @@
   const produto = { nome, preco, descricao };
 
   try {
-    const response = await fetch(`http://localhost:5000/editar-produto/${id}`, {
+    const response = await fetch(`/editar-produto/${id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -152,7 +162,7 @@ document.getElementById('delete-product-form').addEventListener('submit', async 
   const id = document.getElementById('delete-product-id').value;
 
   try {
-    const response = await fetch(`http://localhost:5000/excluir-produto/${id}`, {
+    const response = await fetch(`/excluir-produto/${id}`, {
       method: 'DELETE',
     });
 
@@ -166,6 +176,48 @@ document.getElementById('delete-product-form').addEventListener('submit', async 
     alert('Erro ao se comunicar com o servidor.');
   }
 });
+
+
+// Função para carregar os produtos
+async function carregarProdutos() {
+    try {
+        // Faz uma requisição GET à rota '/produtos'
+        const response = await fetch('/get-produtos');
+        if (response.ok) {
+            const produtos = await response.json();
+
+            // Seleciona o corpo da tabela
+            const tbody = document.querySelector('.product-table tbody');
+            tbody.innerHTML = ''; // Limpa a tabela antes de preencher
+
+            // Adiciona cada produto como uma linha na tabela
+            produtos.forEach((produto, index) => {
+                const row = document.createElement('tr');
+
+                row.innerHTML = `
+                    <td>${produto.id || index + 1}</td>
+                    <td>${produto.nome}</td>
+                    <td>R$ ${produto.preco.toFixed(2)}</td>
+                    <td>${produto.descricao}</td>
+                `;
+
+                tbody.appendChild(row);
+            });
+        } else {
+            console.error('Erro ao buscar produtos:', await response.text());
+            alert('Erro ao carregar os produtos.');
+        }
+    } catch (error) {
+        console.error('Erro ao se comunicar com o servidor:', error);
+        alert('Erro ao carregar os produtos.');
+    }
+}
+
+// Carrega os produtos ao carregar a página
+document.addEventListener('DOMContentLoaded', carregarProdutos);
+
+
+
 
     </script>
 </body>
