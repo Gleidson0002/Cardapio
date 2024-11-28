@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>Document</title>
+</head>
+
+<body>
+
+  <header>
+    <a href="/index" class="logo">
+      <img src="./image/logo.png" alt="Logo" />
+      <nav class="navbar">
+
+        <ul class="nav-links">
+          <li><a href="javascript:void(0)" onclick="openModal()"><i class="fa-solid fa-location-dot"></i>Pedido</a></li>
+          <li><a href="#menu"><i class="fa-solid fa-location-dot"></i> Area de entrega</a></li>
+          <li><a href="/login"><i class="fa-regular fa-user"></i> Entrar/login</a></li>
+        </ul>
+      </nav>
+  </header>
+
+  <div class="opcoes">
+    <div class="menu-section">
+        <h1>Explore nossos produtos <span>#I<3Pizza</span>
+        </h1>
+        <div class="menu-items">
+
+            <div class="menu-item">
+                <a href="/">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTazrMgTImJ19-NFQmOfIJSOjQvuCYbwvGOVg&s"
+                        alt="Menu Principal">
+                </a>
+                <p>Menu Principal</p>
+            </div>
+
+            <div class="menu-item">
+                <a href="/combo">
+                    <img src="https://s5.static.brasilescola.uol.com.br/be/2023/03/pizza-italiana-tradicional-com-tomates-e-manjericao-em-alusao-a-historia-da-pizza.jpg"
+                        alt="Billabong hour">
+                </a>
+                <p>Combos</p>
+            </div>
+
+            <div class="menu-item">
+                <a href="/bebida"> <img
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3GbzUQchJthRpmFLANs8Gowf9Y68GPHxsAQ&s"
+                        alt="Bebidas"></a>
+                <p>Bebidas</p>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+    <div class="card-container">
+
+      <div class="card">
+        <img src="https://www.calenzano.com.br/wp-content/uploads/2020/05/combo_familia.jpg" alt="combo1">
+        <h3 id="prod-detalhe-prod-6">Combo Familia</h3>
+        <p>Inclui duas pizzas grandes com sabores à sua escolha, uma pizza pequena doce para a sobremesa e uma Coca-Cola
+          de 2L. Ideal para compartilhar com toda a família</p>
+        <p>A partir de <span class="price-prod-6">R$ 202,90</span></p>
+        <button class="btnCompra" onclick="selecionarprod('prod-6')">Eu quero!</button>
+      </div>
+
+      <div class="card">
+        <img src="https://www.calenzano.com.br/wp-content/uploads/2020/06/combo_casal-especial.jpg" alt="Pizza Frita">
+        <h3 id="prod-detalhe-prod-7">Combo Casal </h3>
+        <p>Pensado para dois, esse combo traz uma pizza grande com o sabor que preferirem, uma pizza pequena doce para adoçar a refeição, acompanhados de um Guaraná de 2L.</p>
+        <p>A partir de <span class="price-prod-7">R$ 22,90</span></p>
+        <button class="btnCompra" onclick="selecionarprod('prod-7')">Eu quero!</button>
+      </div>
+
+      <div class="card">
+        <img src="https://www.calenzano.com.br/wp-content/uploads/2020/06/combo_pequeno.jpg" alt="Pizza Frita">
+        <h3 id="prod-detalhe-prod-8">Combo Pequeno</h3>
+        <p>Perfeito para uma refeição individual ou lanche rápido, com uma pizza pequena no sabor de sua preferência e um Guaraná de 350ml para acompanhar.</p>
+        <p>A partir de <span class="price-prod-8">R$ 22,90</span></p>
+       <button class="btnCompra" onclick="selecionarprod('prod-8')">Eu quero!</button>
+      </div>
+
+      <div class="card">
+        <img src="https://www.calenzano.com.br/wp-content/uploads/2020/06/combo_borda.jpg" alt="Pizza Frita">
+        <h3 id="prod-detalhe-prod-9">Combo Borda</h3>
+        <p>Para quem ama borda recheada, esse combo inclui uma pizza média com borda extra, acompanhada por uma Coca-Cola de 1L.</p>
+        <p>A partir de <span class="price-prod-9">R$ 22,90</span></p>
+        <button class="btnCompra" onclick="selecionarprod('prod-9')">Eu quero!</button>
+      </div>
+
+      <div class="card">
+        <img src="https://www.calenzano.com.br/wp-content/uploads/2023/02/combo_kids-doce.jpg" alt="Pizza Frita">
+        <h3 id="prod-detalhe-prod-10">Combo Kids Doce</h3>
+        <p>Especial para as crianças, com uma pizza pequena doce no sabor escolhido e uma latinha de Guaraná para completar a diversão.</p>
+        <p>A partir de <span class="price-prod-10">R$ 22,90</span>
+        <button class="btnCompra" onclick="selecionarprod('prod-10')">Eu quero!</button>
+      </div>
+
+    </div>
+ 
+ <!-- Modal Popup -->
+ <div class="modal" id="modal">
+  <div class="modal-content">
+      <button class="close-btn" onclick="closeModal()">X</button>
+      <div class="header">
+          <h2>Pizzaria do Mago</h2>
+          <p>Relatório de Compra</p>
+      </div>
+
+      <table class="order-items">
+        <table class="order-items">
+          <thead>
+            <tr>
+              <th>Item</th>
+              <th>Qtd</th>
+              <th>Preço</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Os itens serão inseridos aqui -->
+          </tbody>
+        </table>
+  </div>
+</div>
+<script src="../script.js"></script>
+<script src="../app.js"></script>
+
+</body>
+
+</html>
