@@ -164,6 +164,7 @@ header img{
   color: green;
 }
 .btnCompra{
+  margin: 0 auto;
   height: 30px;
   width: 80px;
   color: #ffffff;
@@ -171,27 +172,119 @@ header img{
   border-radius: 10px;
   border: 1px solid rgb(0, 255, 0);
 }
+/* Modal Wrapper */
 .modal {
-  display: none; /* Inicialmente escondido */
+  color: black;
+  display: none; /* Inicialmente invisível */
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Fundo semitransparente */
-  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5); /* Fundo semi-transparente */
+  z-index: 1050; /* Garante que o modal ficará acima de outros elementos */
   align-items: center;
-  z-index: 1000;
+  justify-content: center;
+  overflow: auto; /* Permite rolar se o conteúdo do modal for maior que a tela */
 }
 
 .modal-content {
-  background: #292b31;
+  background-color: #fff;
+  border-radius: 5px;
   padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  width: 400px; /* Defina o tamanho que preferir */
+  max-width: 90%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilo do botão de fechar */
+.close-btn {
+  background-color: transparent;
+  border: none;
+  font-size: 20px;
+  color: #000;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.close-btn:hover {
+  color: red;
+}
+
+/* Garantir que o conteúdo do modal seja centrado */
+.modal-content h2 {
   text-align: center;
-  width: 80%;
-  max-width: 500px;
+  margin-bottom: 20px;
+}
+
+.modal form {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal form input {
+  margin-bottom: 10px;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+
+.modal form button {
+  padding: 10px;
+  background-color: #28a745;
+  color: black;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.modal form button:hover {
+  background-color: #218838;
 }
 
 
+.remove-btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.remove-btn:hover {
+  transform: scale(1.2); /* Aumenta levemente o botão ao passar o mouse */
+  color: #ff0000; /* Realça a cor ao passar o mouse */
+}
+
+.remove-btn i {
+  pointer-events: none; /* Impede clique no ícone diretamente */
+}
+
+.popup {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 15px 25px;
+  background-color: #28a745; /* Cor verde para indicar sucesso */
+  color: #fff;
+  font-size: 16px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.popup.hidden {
+  display: none;
+}
+
+.popup.show {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}

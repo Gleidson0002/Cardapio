@@ -32,4 +32,16 @@ router.get('/firestore', function(req, res, next) {
   res.render('app'); // Renderiza "views/bebida.ejs"
 });
 
+router.get('/pedidos', function(req, res, next) {
+  res.render('pedidos'); // Renderiza "views/bebida.ejs"
+});
+
+router.get('/reservas', function(req, res, next) {
+  res.render('reservas'); // Renderiza "views/bebida.ejs"
+});
+
+router.get('/script', function(req, res, next) {
+  res.render('script'); // Renderiza "views/bebida.ejs"
+});
+
 module.exports = router;
