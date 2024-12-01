@@ -1,183 +1,155 @@
 <!DOCTYPE html>
 <html lang="Pt-br">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Definições de metadados da página -->
+    <meta charset="UTF-8"> <!-- Define o charset da página como UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Define as configurações de visualização em dispositivos móveis -->
+    
+    <!-- Inclusão do CSS do Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    
+    <!-- Inclusão do script do Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
+    
+    <!-- Inclusão de estilo CSS personalizado -->
     <link rel="stylesheet" href="/stylesheets/style.css">
+    
+    <!-- Inclusão de fontes do FontAwesome para ícones -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
     integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- Definição do favicon do site -->
     <link rel="icon" href="/path/to/favicon.ico" type="image/x-icon">
+    
+    <!-- Inclusão das bibliotecas do Firebase para integração com o Firestore -->
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js"></script>
+    
+    <!-- Inclusão de script JavaScript específico -->
     <script type="module" src="/firestore"></script>
+    
+    <!-- Título da página -->
     <title>Document</title>
 </head>
 
 <body>
-    <header>
-        <a href="/" class="logo">
-          <img src="./image/logo.png" alt="Logo" />
-          <nav class="navbar">
-    
-            <ul class="nav-links">
-              <li><a href="javascript:void(0)" onclick="openModal()"><i class="fa-solid fa-basket-shopping"></i> Pedido</a></li>
-              <li><a href="#menu"><i class="fa-solid fa-location-dot"></i> Area de entrega</a></li>
-              <li><a href="/login"><i class="fa-regular fa-user"></i> Entrar/login</a></li>
-            </ul>
-          </nav>
-      </header>
+  <!-- Cabeçalho com logo e navegação -->
+  <header>
+    <a href="/" class="logo">
+      <img src="./image/logo.png" alt="Logo" /> <!-- Exibição da logo -->
+      <nav class="navbar">
+        <ul class="nav-links">
+          <!-- Links de navegação -->
+          <li><a href="javascript:void(0)" onclick="openModal()"><i class="fa-solid fa-basket-shopping"></i> Pedido</a></li>
+          <li><a href="/reserva"><i class="fa-regular fa-circle-check"></i> Reserve</a></li>
+          <li><a href="/login"><i class="fa-regular fa-user"></i> Entrar/login</a></li>
+        </ul>
+      </nav>
+  </header>
 
-    <div class="opcoes">
-        <div class="menu-section">
-            <h1>Explore nossos produtos <span>#I<3Pizza</span>
-            </h1>
-            <div class="menu-items">
-    
-                <div class="menu-item">
-                    <a href="/">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTazrMgTImJ19-NFQmOfIJSOjQvuCYbwvGOVg&s"
-                            alt="Menu Principal">
-                    </a>
-                    <p>Menu Principal</p>
-                </div>
-    
-                <div class="menu-item">
-                    <a href="/combo">
-                        <img src="https://s5.static.brasilescola.uol.com.br/be/2023/03/pizza-italiana-tradicional-com-tomates-e-manjericao-em-alusao-a-historia-da-pizza.jpg"
-                            alt="Billabong hour">
-                    </a>
-                    <p>Combos</p>
-                </div>
-    
-                <div class="menu-item">
-                    <a href="/bebida"> <img
-                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3GbzUQchJthRpmFLANs8Gowf9Y68GPHxsAQ&s"
-                            alt="Bebidas"></a>
-                    <p>Bebidas</p>
-                </div>
-    
-            </div>
-        </div>
-    </div>
-    
-  <div class="card-container">
-    <!-- Os cards serão adicionados aqui -->
+  <!-- Seção de opções com produtos -->
+  <div class="opcoes">
+      <div class="menu-section">
+          <h1>Explore nossos produtos <span>#I<3Pizza</span></h1>
+          <div class="menu-items">
+              <!-- Cada item do menu com link para categorias diferentes -->
+              <div class="menu-item">
+                  <a href="/">
+                      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTazrMgTImJ19-NFQmOfIJSOjQvuCYbwvGOVg&s" alt="Menu Principal">
+                  </a>
+                  <p>Menu Principal</p>
+              </div>
+
+              <div class="menu-item">
+                  <a href="/combo">
+                      <img src="https://s5.static.brasilescola.uol.com.br/be/2023/03/pizza-italiana-tradicional-com-tomates-e-manjericao-em-alusao-a-historia-da-pizza.jpg" alt="Billabong hour">
+                  </a>
+                  <p>Combos</p>
+              </div>
+
+              <div class="menu-item">
+                  <a href="/bebida">
+                      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3GbzUQchJthRpmFLANs8Gowf9Y68GPHxsAQ&s" alt="Bebidas">
+                  </a>
+                  <p>Bebidas</p>
+              </div>
+          </div>
+      </div>
   </div>
   
-<!-- Modal de Login para "Finalizar Pedidos" -->
-<div class="modal" id="modal-login">
-  <div class="modal-content">
-    <button class="close-btn" onclick="closeModalLogin()">X</button>
-    <h2>Finalizar Pedido</h2>
-    <form id="form-finalizar-pedido">
-      <label for="nome">Nome:</label>
-      <input type="text" id="nome" name="nome" required><br>
-
-      <label for="telefone">Telefone:</label>
-      <input type="text" id="telefone" name="telefone" required><br>
-
-      <label for="endereco">Endereço:</label>
-      <input type="text" id="endereco" name="endereco" required><br>
-
-      <button type="submit">Finalizar Pedido</button>
-    </form>
+  <!-- Container para os cards de pedidos -->
+  <div class="card-container">
+    <!-- Os cards serão inseridos dinamicamente aqui -->
   </div>
-</div>
 
-<!-- Modal para "Solicitar Cozinha" -->
-<div class="modal" id="modal-cozinha">
-  <div class="modal-content">
-    <button class="close-btn" onclick="closeModalCozinha()">X</button>
-    <h2>Solicitar à Cozinha</h2>
-    <form id="form-solicitar-cozinha">
-      <label for="numero-mesa">Número da Mesa:</label>
-      <input type="text" id="numero-mesa" name="numero-mesa" required><br>
+  <!-- Modal para finalizar pedido -->
+  <div class="modal" id="modal-login">
+    <div class="modal-content">
+      <button class="close-btn" onclick="closeModalLogin()">X</button>
+      <h2>Finalizar Pedido</h2>
+      <form id="form-finalizar-pedido">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" required><br>
 
-      <button type="submit">Solicitar à Cozinha</button>
-    </form>
+        <label for="telefone">Telefone:</label>
+        <input type="text" id="telefone" name="telefone" required><br>
+
+        <label for="endereco">Endereço:</label>
+        <input type="text" id="endereco" name="endereco" required><br>
+
+        <button type="submit">Finalizar Pedido</button>
+      </form>
+    </div>
   </div>
-</div>
 
-<!-- Modal para Exibir Pedidos -->
-<div class="modal" id="modal">
-  <div class="modal-content">
-    <button class="close-btn" onclick="closeModal()">X</button>
-    <h2>Pizzaria do Mago</h2>
-    <p>Relatório de Compra</p>
-    <table class="order-items">
-      <thead>
-        <tr>
-          <th>Item</th>
-          <th>Qtd</th>
-          <th>Preço</th>
-          <th>Remover</th>
-        </tr>
-      </thead>
-      <tbody>
-        <!-- Itens do carrinho aqui -->
-      </tbody>
-    </table>
-    <br>
-    <br>
-    <button class="btn btn-primary" onclick="mostrarModalCozinha(), closeModal()">Solicitar a cozinha</button>
-    <button class="btn btn-success" onclick="mostrarModalLogin(), closeModal();">Finalizar pedidos</button>
+  <!-- Modal para solicitar à cozinha -->
+  <div class="modal" id="modal-cozinha">
+    <div class="modal-content">
+      <button class="close-btn" onclick="closeModalCozinha()">X</button>
+      <h2>Solicitar à Cozinha</h2>
+      <form id="form-solicitar-cozinha">
+        <label for="numero-mesa">Número da Mesa:</label>
+        <input type="text" id="numero-mesa" name="numero-mesa" required><br>
+
+        <button type="submit">Solicitar à Cozinha</button>
+      </form>
+    </div>
   </div>
-</div>
 
-<div id="popup" class="popup hidden">Item adicionado ao carrinho!</div>
+  <!-- Modal para exibir pedidos no carrinho -->
+  <div class="modal" id="modal">
+    <div class="modal-content">
+      <button class="close-btn" onclick="closeModal()">X</button>
+      <h2>Pizzaria do Mago</h2>
+      <p>Relatório de Compra</p>
+      <table class="order-items">
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th>Qtd</th>
+            <th>Preço</th>
+            <th>Remover</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Itens do carrinho aqui -->
+        </tbody>
+      </table>
+      <br>
+      <button class="btn btn-primary" onclick="mostrarModalCozinha(), closeModal()">Solicitar a cozinha</button>
+      <button class="btn btn-success" onclick="mostrarModalLogin(), closeModal();">Finalizar pedidos</button>
+    </div>
+  </div>
 
-<script defer>
-// Função para carregar os produtos
-async function carregarProdutos() {
-    try {
-        const response = await fetch('http://localhost:5000/get-produtos');
-        
-        if (!response.ok) {
-            throw new Error(`Erro ao buscar produtos: ${response.statusText}`);
-        }
+  <!-- Popup de notificação de item adicionado ao carrinho -->
+  <div id="popup" class="popup hidden">Item adicionado ao carrinho!</div>
 
-        const produtos = await response.json();
-
-        if (!Array.isArray(produtos)) {
-            throw new Error('Formato de resposta inválido. Esperado um array de produtos.');
-        }
-
-        const cardContainer = document.querySelector('.card-container');
-        cardContainer.innerHTML = ''; // Limpa os cards antes de preencher
-
-        // Filtra os produtos apenas da categoria "comida"
-        const comidas = produtos.filter(produto => produto.tipo === 'bebida');
-
-        // Cria os cards para os produtos filtrados
-        comidas.forEach(produto => {
-            const card = document.createElement('div');
-            card.classList.add('card');
-
-            card.innerHTML = `
-                <img src="${produto.imagem}" alt="${produto.nome}" class="card-img">
-                <h3>${produto.nome}</h3>
-                <p>${produto.descricao}</p>
-                <p>A partir de <span class="price">R$ ${produto.preco ? produto.preco.toFixed(2) : '0.00'}</span></p>
-                <button class="btnCompra" data-id="${produto.id}" onclick="adicionarCarrinho(event)">Eu quero!</button>
-            `;
-            cardContainer.appendChild(card);
-        });
-    } catch (error) {
-        console.error('Erro ao carregar os produtos:', error);
-        alert('Erro ao carregar os produtos. Verifique o console para mais detalhes.');
-    }
-}
-
-document.addEventListener('DOMContentLoaded', carregarProdutos);
-</script>
-<script src="/script/script.js"></script>
+  <!-- Inclusão de scripts JavaScript -->
+  <script defer src="/script/js_bebida.js"></script>
+  <script src="/script/script.js"></script>
 </body>
-
 </html>

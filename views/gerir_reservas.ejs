@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <!-- Meta tags para charset e responsividade -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Link para o CSS do Bootstrap para estilização básica -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Link para a biblioteca Chart.js (provavelmente usada para gráficos no dashboard) -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Link para o CSS personalizado para a página do Dashboard -->
+    <link rel="stylesheet" href="/stylesheets/dashboard_style.css">
+
+    <!-- Título da página -->
+    <title>Dashboard</title>
+</head>
+
+<body>
+    <!-- Sidebar de navegação lateral -->
+    <div class="sidebar" style="transform: translatex(0px) translatey(0px);">
+        <h2>Menu</h2>
+        <ul class="nav flex-column">
+            <!-- Links de navegação para o Dashboard e outras seções -->
+            <li class="nav-item">
+                <a class="nav-link active" href="/dashboard">Dashboard</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/pedidos">Pedidos</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/gerir_reservas">Reservas e avaliações</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/">Sair</a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Título da seção de Reservas -->
+    <h1>Reservas</h1>
+
+    <!-- Contêiner para os cards das reservas -->
+    <div class="card-container container mt-4">
+        <!-- As reservas serão exibidas aqui -->
+        <div id="reservas-list" class="row"></div>
+    </div>
+
+    <!-- Script para a lógica de gerenciamento de reservas -->
+    <script src="/script/gerir_reservas.js"></script>
+</body>
+
+</html>

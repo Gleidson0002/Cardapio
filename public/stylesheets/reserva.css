@@ -1,0 +1,9 @@
+#forms {
+    width: 300px;
+    margin:0 auto; 
+    padding: 60px; 
+    border: 1px solid #ccc; 
+    border-radius: 8px; 
+    background-color:#333 ; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+}

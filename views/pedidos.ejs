@@ -2,16 +2,26 @@
 <html lang="pt-BR">
 
 <head>
+    <!-- Meta tags para charset e responsividade -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Link para o CSS do Bootstrap para estilização da página -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Inclusão da biblioteca Chart.js (não utilizada diretamente neste código, mas pode ser usada em gráficos) -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Link para o CSS personalizado da dashboard -->
     <link rel="stylesheet" href="/stylesheets/dashboard_style.css">
+
+    <!-- Título da página -->
     <title>Dashboard - Pedidos</title>
 </head>
 
 <body>
 
+    <!-- Menu lateral (sidebar) -->
     <div class="sidebar" style="transform: translatex(-5px) translatey(0px)">
         <h2>Menu</h2>
         <ul class="nav flex-column">
@@ -22,7 +32,7 @@
                 <a class="nav-link" href="/pedidos">Pedidos</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/reservas">Reservas e avaliações</a>
+                <a class="nav-link" href="/gerir_reservas">Reservas e avaliações</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/">Sair</a>
@@ -30,8 +40,12 @@
         </ul>
     </div>
 
+    <!-- Conteúdo principal -->
     <div class="container" style="margin-left: 220px; padding-top: 50px;">
+        <!-- Título da página de pedidos -->
         <h1>Pedidos</h1>
+
+        <!-- Tabela para exibir a lista de pedidos -->
         <table class="table table-bordered" style="color: white;">
             <thead>
                 <tr>
@@ -40,16 +54,17 @@
                     <th>Mesa</th>
                     <th>Status</th>
                     <th>Data/Hora</th> <!-- Coluna para Data/Hora -->
-                    <th>Ação</th>
+                    <th>Ação</th> <!-- Coluna para ações (editar/excluir) -->
                 </tr>
             </thead>
             <tbody id="tabela-pedidos">
-                <!-- Os pedidos serão listados aqui -->
+                <!-- Os pedidos serão listados aqui dinamicamente através do JavaScript -->
             </tbody>
         </table>
     </div>
 
-<script src="/script/pedidos.js"></script>
+    <!-- Script JavaScript para manipulação dos dados dos pedidos -->
+    <script src="/script/pedidos.js"></script>
 </body>
 
 </html>
